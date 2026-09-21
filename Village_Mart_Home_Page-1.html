@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Village Mart</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7f7f5;color:#14231d}
+:root{--green:#004d3b;--green2:#00664e;--yellow:#ffd21c;--light:#fff}
+header{background:linear-gradient(135deg,#003e31,#00634c);color:#fff;padding:14px 16px 18px;position:sticky;top:0;z-index:10}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:9px}.logo{width:46px;height:46px;border-radius:12px;background:var(--yellow);color:var(--green);display:grid;place-items:center;font-weight:900;font-size:19px}.brand h1{font-size:25px;margin:0}.brand h1 span{color:var(--yellow)}.brand small{display:block;font-size:12px;margin-top:2px;opacity:.9}.icons{display:flex;gap:10px}.iconbtn{border:0;background:transparent;color:#fff;font-size:25px;position:relative}.badge{position:absolute;right:-3px;top:-5px;background:#e53935;color:#fff;font-size:10px;border-radius:20px;padding:3px 6px}
+.search{margin-top:15px;background:#fff;border-radius:30px;padding:11px 15px;display:flex;align-items:center;gap:9px}.search input{border:0;outline:0;width:100%;font-size:15px}.search button{border:0;background:none;font-size:20px}
+main{padding:16px}.banner{background:linear-gradient(120deg,#063e31,#0c7356);color:#fff;border-radius:16px;min-height:190px;padding:24px;position:relative;overflow:hidden}.banner:after{content:"";position:absolute;right:-55px;top:-30px;width:220px;height:220px;background:rgba(255,210,28,.15);border-radius:50%}.banner h2{font-size:30px;margin:4px 0}.banner p{font-size:17px}.yellow{color:var(--yellow)}.shop{background:var(--yellow);border:0;padding:11px 19px;border-radius:25px;font-weight:800;font-size:14px}.off{position:absolute;right:18px;top:24px;background:var(--yellow);color:#111;border-radius:50%;width:95px;height:95px;display:grid;place-items:center;text-align:center;font-weight:900;z-index:1}.dots{text-align:center;padding:9px}.dots span{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ccc;margin:3px}.dots span:first-child{width:22px;border-radius:10px;background:var(--green)}
+h2.sec{font-size:22px;margin:18px 0 11px}.cats{display:flex;gap:12px;overflow:auto;padding-bottom:4px}.cat{min-width:78px;text-align:center}.cat .circle{width:66px;height:66px;border-radius:50%;margin:auto;background:#eee;display:grid;place-items:center;font-size:29px}.cat b{display:block;font-size:12px;margin-top:6px}.features{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;background:#fff;padding:12px;border-radius:14px;margin-top:18px}.feature{padding:8px;font-size:12px}.feature strong{display:block;font-size:13px}.promo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.promo .box{border-radius:14px;padding:16px;min-height:125px;color:#fff;background:#073e67}.promo .box:nth-child(2){background:#eee1cf;color:#111}.promo h3{margin:0 0 7px;font-size:18px}.products{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.card{background:#fff;border-radius:13px;overflow:hidden;position:relative;box-shadow:0 2px 10px #00000010}.pic{height:170px;background:#eee;display:grid;place-items:center;font-size:70px}.discount{position:absolute;left:7px;top:7px;background:#0b5d44;color:#fff;border-radius:8px;padding:4px 7px;font-size:10px;font-weight:bold}.heart{position:absolute;right:7px;top:7px;background:#fff;border:0;border-radius:50%;width:29px;height:29px;font-size:17px}.info{padding:10px}.rating{font-size:11px;color:#e0a400}.name{font-size:13px;margin:5px 0}.price{font-weight:900;font-size:18px}.old{text-decoration:line-through;color:#999;font-size:11px;font-weight:normal;margin-left:4px}.add{float:right;background:var(--green);color:#fff;border:0;border-radius:8px;padding:7px 9px}
+nav{position:sticky;bottom:0;background:#fff;border-top:1px solid #ddd;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 3px;z-index:20}.navbtn{border:0;background:none;color:#555;font-size:11px}.navbtn b{display:block;font-size:21px;margin-bottom:2px}.navbtn.active{color:var(--green);font-weight:bold}
+#toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#123;color:#fff;padding:11px 18px;border-radius:25px;display:none;z-index:50;font-size:13px}
+@media(min-width:700px){main{max-width:1000px;margin:auto}.products{grid-template-columns:repeat(4,1fr)}.features{grid-template-columns:repeat(4,1fr)}header{padding-left:calc((100% - 1000px)/2 + 16px);padding-right:calc((100% - 1000px)/2 + 16px)}nav{max-width:1000px;margin:auto}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <div class="brand"><div class="logo">VM</div><div><h1>Village <span>Mart</span></h1><small>Fashion • Footwear • Lifestyle</small></div></div>
+  <div class="icons"><button class="iconbtn">♧<span class="badge">3</span></button><button class="iconbtn" onclick="showCart()">🛒<span id="cartBadge" class="badge">0</span></button></div>
+ </div>
+ <div class="search">🔍<input id="search" placeholder="कपड़े, जूते, बैग आदि खोजें..." oninput="filterProducts()"><button>📷</button></div>
+</header>
+<main>
+<section class="banner"><div class="off">UP TO<br><span style="font-size:25px">50%</span><br>OFF</div><div class="yellow" style="font-size:20px;font-style:italic">New Collection</div><h2>Latest Fashion</h2><p>हर स्टाइल में, हर मौके पर</p><button class="shop" onclick="scrollToProducts()">Shop Now →</button></section>
+<div class="dots"><span></span><span></span><span></span><span></span><span></span></div>
+
+<h2 class="sec">Categories</h2>
+<div class="cats">
+ <div class="cat" onclick="category('पुरुष')"><div class="circle">👔</div><b>पुरुष<br>कपड़े</b></div>
+ <div class="cat" onclick="category('महिला')"><div class="circle">👗</div><b>महिला<br>कपड़े</b></div>
+ <div class="cat" onclick="category('बच्चे')"><div class="circle">🧥</div><b>बच्चे<br>कपड़े</b></div>
+ <div class="cat" onclick="category('जूते')"><div class="circle">👟</div><b>जूते<br>Shoes</b></div>
+ <div class="cat" onclick="category('चप्पल')"><div class="circle">🩴</div><b>चप्पल<br>Sandals</b></div>
+ <div class="cat" onclick="category('बैग')"><div class="circle">🎒</div><b>बैग<br>Bags</b></div>
+ <div class="cat" onclick="category('घड़ी')"><div class="circle">⌚</div><b>घड़ियाँ<br>Watches</b></div>
+ <div class="cat" onclick="category('कैप')"><div class="circle">🧢</div><b>कैप<br>Caps</b></div>
+</div>
+
+<div class="features"><div class="feature">🚚 <strong>Free Delivery</strong>कुछ चुनिंदा क्षेत्रों में</div><div class="feature">🛡️ <strong>Secure Payment</strong>100% सुरक्षित</div><div class="feature">↩️ <strong>Easy Return</strong>7 दिन के अंदर</div><div class="feature">🎧 <strong>24x7 Support</strong>हमेशा आपके साथ</div></div>
+
+<div class="promo"><div class="box"><h3>Men’s Collection</h3>स्टाइल जो बोले आपके लिए<br><br><button class="shop" onclick="category('पुरुष')">Shop Now →</button></div><div class="box"><h3>Best Footwear</h3>हर कदम में आराम<br><br><button class="shop" onclick="category('जूते')">Shop Now →</button></div></div>
+
+<h2 class="sec" id="productsTitle">नए उत्पाद <span style="float:right;color:#075f49;font-size:13px">सभी देखें →</span></h2>
+<div class="products" id="products"></div>
+</main>
+<nav><button class="navbtn active"><b>⌂</b>Home</button><button class="navbtn" onclick="category('all')"><b>▦</b>Categories</button><button class="navbtn" onclick="document.getElementById('search').focus()"><b>⌕</b>Search</button><button class="navbtn" onclick="showCart()"><b>🛒</b>Cart</button><button class="navbtn"><b>♙</b>Profile</button></nav>
+<div id="toast"></div>
+<script>
+const products=[
+ {cat:'पुरुष',name:'पुरुष चेक शर्ट',price:599,old:999,off:40,emoji:'👔',rating:'4.5 (124)'},
+ {cat:'महिला',name:'महिला कुर्ती',price:649,old:999,off:35,emoji:'👗',rating:'4.3 (98)'},
+ {cat:'जूते',name:'स्पोर्ट्स शूज',price:1299,old:2599,off:50,emoji:'👟',rating:'4.6 (210)'},
+ {cat:'चप्पल',name:'पुरुष सैंडल',price:699,old:999,off:30,emoji:'🩴',rating:'4.2 (76)'},
+ {cat:'पुरुष',name:'प्रीमियम जैकेट',price:1199,old:1999,off:40,emoji:'🧥',rating:'4.5 (61)'},
+ {cat:'बैग',name:'फैशन बैग',price:899,old:1499,off:40,emoji:'🎒',rating:'4.4 (88)'}
+];
+let cart=0;
+function render(list=products){document.getElementById('products').innerHTML=list.map((p,i)=>`<div class="card"><span class="discount">${p.off}% OFF</span><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><div class="pic">${p.emoji}</div><div class="info"><div class="rating">⭐ ${p.rating}</div><div class="name">${p.name}</div><div class="price">₹${p.price} <span class="old">₹${p.old}</span><button class="add" onclick="addCart()">🛒</button></div></div></div>`).join('')}
+function addCart(){cart++;document.getElementById('cartBadge').textContent=cart;toast('सामान Cart में जोड़ दिया गया ✓')}
+function showCart(){toast(cart?`आपके Cart में ${cart} सामान है`:'Cart अभी खाली है')}
+function toast(t){let x=document.getElementById('toast');x.textContent=t;x.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>x.style.display='none',1800)}
+function category(c){if(c==='all'){render();return} let list=products.filter(p=>p.cat===c);render(list);document.getElementById('productsTitle').scrollIntoView({behavior:'smooth'});toast(list.length?`${c} के ${list.length} उत्पाद मिले`:`${c} के उत्पाद जल्द आएंगे`)}
+function filterProducts(){let q=document.getElementById('search').value.toLowerCase();render(products.filter(p=>p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)))}
+function scrollToProducts(){document.getElementById('productsTitle').scrollIntoView({behavior:'smooth'})}
+render();
+</script>
+</body>
+</html>
