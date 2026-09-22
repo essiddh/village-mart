@@ -1283,6 +1283,12 @@ function scrollToProducts(){
 }
 function openProfile(){
 
+ const savedName = localStorage.getItem('customerName') || '';
+ const savedPhone = localStorage.getItem('customerPhone') || '';
+
+ document.getElementById('customerName').value = savedName;
+ document.getElementById('customerPhone').value = savedPhone;
+
  document
   .getElementById('profileModal')
   .style.display='block';
