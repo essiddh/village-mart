@@ -981,10 +981,6 @@ import {
  getAuth,
  signInAnonymously,
  onAuthStateChanged,
- RecaptchaVerifier,
- PhoneAuthProvider,
- linkWithCredential,
- signInWithPhoneNumber,
  createUserWithEmailAndPassword,
 signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
@@ -1769,60 +1765,7 @@ async function emailLogin() {
 
 window.emailSignup = emailSignup;
 window.emailLogin = emailLogin; 
-let confirmationResult = null;
 
-function sendOTP() {
-  const phone = document.getElementById("customerPhone").value.trim();
-
-  if (!phone) {
-    alert("कृपया मोबाइल नंबर डालें");
-    return;
-  }
-
-  const fullPhone = phone.startsWith("+") ? phone : "+91" + phone;
-
-  window.recaptchaVerifier = new RecaptchaVerifier(
-    auth,
-    "recaptcha-container",
-    {
-      size: "normal"
-    }
-  );
-
-  signInWithPhoneNumber(auth, fullPhone, window.recaptchaVerifier)
-    .then((result) => {
-      confirmationResult = result;
-      alert("OTP भेज दिया गया ✓");
-    })
-    .catch((error) => {
-      console.error(error);
-      alert("OTP भेजने में समस्या: " + error.message);
-    });
-}
-
-async function verifyOTP() {
-  const otp = document.getElementById("customerOTP").value.trim();
-
-  if (!confirmationResult) {
-    alert("पहले OTP भेजें");
-    return;
-  }
-
-  if (otp.length !== 6) {
-    alert("6 अंकों का OTP डालें");
-    return;
-  }
-
-  try {
-    await confirmationResult.confirm(otp);
-    alert("Mobile Number Verify हो गया ✓");
-  } catch (error) {
-    console.error(error);
-    alert("OTP गलत है");
-  }
-}
- window.sendOTP = sendOTP;
-window.verifyOTP = verifyOTP;
 </script>
 
  <!-- Profile Modal -->
