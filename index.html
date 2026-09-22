@@ -984,7 +984,9 @@ import {
  RecaptchaVerifier,
  PhoneAuthProvider,
  linkWithCredential,
- signInWithPhoneNumber
+ signInWithPhoneNumber,
+ createUserWithEmailAndPassword,
+signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 import {
  getFirestore,
@@ -1809,46 +1811,50 @@ padding:20px;
     >
 
     <input
-      type="tel"
-      id="customerPhone"
-      placeholder="मोबाइल नंबर"
-      style="width:100%;padding:13px;margin:8px 0;border-radius:10px;border:1px solid #ddd;box-sizing:border-box;"
-    >
-<button onclick="sendOTP()" style="
-width:100%;
-padding:12px;
-margin-top:10px;
-background:#16a34a;
-color:white;
-border:0;
-border-radius:10px;
-font-weight:bold;
-">
-📲 OTP भेजें
-</button>
-
-<input
-  type="text"
-  id="customerOTP"
-  placeholder="OTP दर्ज करें"
-  maxlength="6"
+  type="email"
+  id="customerEmail"
+  placeholder="ईमेल पता"
+  autocomplete="email"
   style="width:100%;padding:13px;margin:8px 0;border-radius:10px;border:1px solid #ddd;box-sizing:border-box;"
 >
 
-<button onclick="verifyOTP()" style="
-width:100%;
-padding:12px;
-margin-top:10px;
-background:#f59e0b;
-color:white;
-border:0;
-border-radius:10px;
-font-weight:bold;
-">
-✅ OTP Verify करें
+<input
+  type="password"
+  id="customerPassword"
+  placeholder="पासवर्ड"
+  autocomplete="new-password"
+  style="width:100%;padding:13px;margin:8px 0;border-radius:10px;border:1px solid #ddd;box-sizing:border-box;"
+>
+
+<button
+  onclick="emailSignup()"
+  style="
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  background:#16a34a;
+  color:white;
+  border:0;
+  border-radius:10px;
+  font-weight:bold;
+  ">
+  📝 Account बनाएं
 </button>
 
-<div id="recaptcha-container" style="margin-top:10px;"></div>
+<button
+  onclick="emailLogin()"
+  style="
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  background:#075f49;
+  color:white;
+  border:0;
+  border-radius:10px;
+  font-weight:bold;
+  ">
+  🔐 Login करें
+</button>
     <button
       onclick="saveProfile()"
       style="width:100%;padding:13px;border:0;border-radius:10px;background:#168a3b;color:white;font-size:16px;font-weight:bold;margin-top:10px;"
