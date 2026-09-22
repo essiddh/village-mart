@@ -976,7 +976,13 @@ Shop Now →
 import {
  initializeApp
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-
+import {
+ getAuth,
+ signInAnonymously,
+ onAuthStateChanged,
+ createUserWithEmailAndPassword,
+ signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 
