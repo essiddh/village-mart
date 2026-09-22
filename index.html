@@ -1307,12 +1307,23 @@ function saveProfile(){
  closeProfile();
 
 }
+ function closeProfile(){
+
  document
   .getElementById('profileModal')
-  .style.display='block';
+  .style.display='none';
 
 }
+
 function openAdmin(){
+
+ document
+  .getElementById('adminModal')
+  .style.display='block';
+
+ renderAdmin();
+
+}
 
  document
   .getElementById('adminModal')
