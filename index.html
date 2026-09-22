@@ -1654,19 +1654,20 @@ onAuthStateChanged(
  }
 );
 
+
 signInAnonymously(auth)
  .catch(err=>{
 
-  console.error(err);
+  console.error('Firebase Auth Error:', err);
 
   cloudReady=false;
 
   status(
-   'Firebase login नहीं हुआ'
+   'Firebase Error: ' + (err.code || err.message)
   );
 
  });
-
+ 
 window.openAdmin=openAdmin;
 window.closeAdmin=closeAdmin;
 window.addCart=addCart;
