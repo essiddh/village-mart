@@ -1281,6 +1281,13 @@ function scrollToProducts(){
 
 }
 function openProfile(){
+
+ document
+  .getElementById('profileModal')
+  .style.display='block';
+
+}
+
 function closeProfile(){
 
  document
@@ -1307,11 +1314,14 @@ function saveProfile(){
  closeProfile();
 
 }
- function closeProfile(){
+
+function openAdmin(){
 
  document
-  .getElementById('profileModal')
-  .style.display='none';
+  .getElementById('adminModal')
+  .style.display='block';
+
+ renderAdmin();
 
 }
 
