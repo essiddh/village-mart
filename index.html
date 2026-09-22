@@ -1726,6 +1726,49 @@ document
  .textContent=cart;
 
 render();
+async function emailSignup() {
+  const email = document.getElementById("customerEmail").value.trim();
+  const password = document.getElementById("customerPassword").value;
+
+  if (!email || !password) {
+    alert("कृपया Email और Password भरें");
+    return;
+  }
+
+  if (password.length < 6) {
+    alert("Password कम से कम 6 अक्षरों का होना चाहिए");
+    return;
+  }
+
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    alert("Account बन गया ✓");
+  } catch (error) {
+    console.error(error);
+    alert("Account बनाने में समस्या: " + error.message);
+  }
+}
+
+async function emailLogin() {
+  const email = document.getElementById("customerEmail").value.trim();
+  const password = document.getElementById("customerPassword").value;
+
+  if (!email || !password) {
+    alert("कृपया Email और Password भरें");
+    return;
+  }
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    alert("Login सफल ✓");
+  } catch (error) {
+    console.error(error);
+    alert("Login में समस्या: " + error.message);
+  }
+}
+
+window.emailSignup = emailSignup;
+window.emailLogin = emailLogin; 
 let confirmationResult = null;
 
 function sendOTP() {
