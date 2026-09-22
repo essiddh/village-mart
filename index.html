@@ -1285,10 +1285,10 @@ function openProfile(){
 
  const savedName = localStorage.getItem('customerName') || '';
  const savedPhone = localStorage.getItem('customerPhone') || '';
-
+const savedEmail = localStorage.getItem('customerEmail') || '';
  document.getElementById('customerName').value = savedName;
  document.getElementById('customerPhone').value = savedPhone;
-
+document.getElementById('customerEmail').value = savedEmail;
  document
   .getElementById('profileModal')
   .style.display='block';
@@ -1307,7 +1307,7 @@ function saveProfile(){
 
  const name=document.getElementById('customerName').value.trim();
  const phone=document.getElementById('customerPhone').value.trim();
-
+const email=document.getElementById('customerEmail').value.trim();
  if(!name || !phone){
    alert('कृपया नाम और मोबाइल नंबर भरें');
    return;
@@ -1315,7 +1315,7 @@ function saveProfile(){
 
  localStorage.setItem('customerName',name);
  localStorage.setItem('customerPhone',phone);
-
+localStorage.setItem('customerEmail',email);
  alert('Profile Save हो गई ✓');
 
  closeProfile();
