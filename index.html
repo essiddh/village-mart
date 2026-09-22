@@ -977,13 +977,7 @@ import {
  initializeApp
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 
-import {
- getAuth,
- signInAnonymously,
- onAuthStateChanged,
- createUserWithEmailAndPassword,
-signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 import {
  getFirestore,
  collection,
@@ -1303,11 +1297,12 @@ function closeProfile(){
 
 }
 
-function saveProfile(){
+async function saveProfile(){
 
  const name=document.getElementById('customerName').value.trim();
  const phone=document.getElementById('customerPhone').value.trim();
-const email=document.getElementById('customerEmail').value.trim();
+ const email=document.getElementById('customerEmail').value.trim();
+
  if(!name || !phone){
    alert('कृपया नाम और मोबाइल नंबर भरें');
    return;
@@ -1315,13 +1310,40 @@ const email=document.getElementById('customerEmail').value.trim();
 
  localStorage.setItem('customerName',name);
  localStorage.setItem('customerPhone',phone);
-localStorage.setItem('customerEmail',email);
- alert('Profile Save हो गई ✓');
+ localStorage.setItem('customerEmail',email);
+
+ const user = auth.currentUser;
+
+ if(user){
+   try{
+
+     await setDoc(
+       doc(db,'profiles',user.uid),
+       {
+         name: name,
+         phone: phone,
+         email: email
+       },
+       { merge: true }
+     );
+
+     alert('Profile Firebase में Save हो गई ✓');
+
+   }catch(error){
+
+     console.error(error);
+     alert('Firebase में Profile Save नहीं हो पाई: ' + error.message);
+
+   }
+ }else{
+
+   alert('Profile इस मोबाइल में Save हो गई ✓');
+
+ }
 
  closeProfile();
 
 }
-
 function openAdmin(){
 
  document
