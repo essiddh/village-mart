@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>म्हारो बाजार | MHAARO BAZAAR</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ font-family:Arial,Helvetica,sans-serif;
+ background:#f7f7f5;
+ color:#14231d
+}
+
+:root{
+ --green:#004d3b;
+ --green2:#00664e;
+ --yellow:#ffd21c;
+ --light:#fff
+}
+
+header{
+ background:linear-gradient(135deg,#003e31,#00634c);
+ color:#fff;
+ padding:14px 16px 18px;
+ position:sticky;
+ top:0;
+ z-index:10
+}
+
+.top{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px
+}
+
+.brand{
+ display:flex;
+ align-items:center;
+ gap:9px
+}
+
+.logo{
+ width:46px;
+ height:46px;
+ border-radius:12px;
+ background:var(--yellow);
+ color:var(--green);
+ display:grid;
+ place-items:center;
+ font-weight:900;
+ font-size:19px
+}
+
+.brand h1{
+ font-size:25px;
+ margin:0
+}
+
+.brand h1 span{
+ color:var(--yellow)
+}
+
+.brand small{
+ display:block;
+ font-size:12px;
+ margin-top:2px;
+ opacity:.9
+}
+
+.icons{
+ display:flex;
+ gap:10px
+}
+
+.iconbtn{
+ border:0;
+ background:transparent;
+ color:#fff;
+ font-size:25px;
+ position:relative
+}
+
+.badge{
+ position:absolute;
+ right:-3px;
+ top:-5px;
+ background:#e53935;
+ color:#fff;
+ font-size:10px;
+ border-radius:20px;
+ padding:3px 6px
+}
+
+.search{
+ margin-top:15px;
+ background:#fff;
+ border-radius:30px;
+ padding:11px 15px;
+ display:flex;
+ align-items:center;
+ gap:9px
+}
+
+.search input{
+ border:0;
+ outline:0;
+ width:100%;
+ font-size:15px
+}
+
+.search button{
+ border:0;
+ background:none;
+ font-size:20px
+}
+
+main{
+ padding:16px
+}
+
+.banner{
+ background:linear-gradient(120deg,#063e31,#0c7356);
+ color:#fff;
+ border-radius:16px;
+ min-height:190px;
+ padding:24px;
+ position:relative;
+ overflow:hidden
+}
+
+.banner:after{
+ content:"";
+ position:absolute;
+ right:-55px;
+ top:-30px;
+ width:220px;
+ height:220px;
+ background:rgba(255,210,28,.15);
+ border-radius:50%
+}
+
+.banner h2{
+ font-size:30px;
+ margin:4px 0
+}
+
+.banner p{
+ font-size:17px
+}
+
+.yellow{
+ color:var(--yellow)
+}
+
+.shop{
+ background:var(--yellow);
+ border:0;
+ padding:11px 19px;
+ border-radius:25px;
+ font-weight:800;
+ font-size:14px
+}
+
+.off{
+ position:absolute;
+ right:18px;
+ top:24px;
+ background:var(--yellow);
+ color:#111;
+ border-radius:50%;
+ width:95px;
+ height:95px;
+ display:grid;
+ place-items:center;
+ text-align:center;
+ font-weight:900;
+ z-index:1
+}
+
+.dots{
+ text-align:center;
+ padding:9px
+}
+
+.dots span{
+ display:inline-block;
+ width:8px;
+ height:8px;
+ border-radius:50%;
+ background:#ccc;
+ margin:3px
+}
+
+.dots span:first-child{
+ width:22px;
+ border-radius:10px;
+ background:var(--green)
+}
+
+h2.sec{
+ font-size:22px;
+ margin:18px 0 11px
+}
+
+.cats{
+ display:flex;
+ gap:12px;
+ overflow:auto;
+ padding-bottom:4px
+}
+
+.cat{
+ min-width:78px;
+ text-align:center
+}
+
+.cat .circle{
+ width:66px;
+ height:66px;
+ border-radius:50%;
+ margin:auto;
+ background:#eee;
+ display:grid;
+ place-items:center;
+ font-size:29px
+}
+
+.cat b{
+ display:block;
+ font-size:12px;
+ margin-top:6px
+}
+
+.features{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:8px;
+ background:#fff;
+ padding:12px;
+ border-radius:14px;
+ margin-top:18px
+}
+
+.feature{
+ padding:8px;
+ font-size:12px
+}
+
+.feature strong{
+ display:block;
+ font-size:13px
+}
+
+.promo{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+ margin-top:16px
+}
+
+.promo .box{
+ border-radius:14px;
+ padding:16px;
+ min-height:125px;
+ color:#fff;
+ background:#073e67
+}
+
+.promo .box:nth-child(2){
+ background:#eee1cf;
+ color:#111
+}
+
+.promo h3{
+ margin:0 0 7px;
+ font-size:18px
+}
+
+.products{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:10px
+}
+
+.card{
+ background:#fff;
+ border-radius:13px;
+ overflow:hidden;
+ position:relative;
+ box-shadow:0 2px 10px #00000010
+}
+
+.pic{
+ height:170px;
+ background:#eee;
+ display:grid;
+ place-items:center;
+ font-size:70px
+}
+
+.discount{
+ position:absolute;
+ left:7px;
+ top:7px;
+ background:#0b5d44;
+ color:#fff;
+ border-radius:8px;
+ padding:4px 7px;
+ font-size:10px;
+ font-weight:bold
+}
+
+.heart{
+ position:absolute;
+ right:7px;
+ top:7px;
+ background:#fff;
+ border:0;
+ border-radius:50%;
+ width:29px;
+ height:29px;
+ font-size:17px
+}
+
+.info{
+ padding:10px
+}
+
+.rating{
+ font-size:11px;
+ color:#e0a400
+}
+
+.name{
+ font-size:13px;
+ margin:5px 0
+}
+
+.price{
+ font-weight:900;
+ font-size:18px
+}
+
+.old{
+ text-decoration:line-through;
+ color:#999;
+ font-size:11px;
+ font-weight:normal;
+ margin-left:4px
+}
+
+.add{
+ float:right;
+ background:var(--green);
+ color:#fff;
+ border:0;
+ border-radius:8px;
+ padding:7px 9px
+}
+
+nav{
+ position:sticky;
+ bottom:0;
+ background:#fff;
+ border-top:1px solid #ddd;
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ padding:8px 3px;
+ z-index:20
+}
+
+.navbtn{
+ border:0;
+ background:none;
+ color:#555;
+ font-size:11px
+}
+
+.navbtn b{
+ display:block;
+ font-size:21px;
+ margin-bottom:2px
+}
+
+.navbtn.active{
+ color:var(--green);
+ font-weight:bold
+}
+
+#toast{
+ position:fixed;
+ left:50%;
+ bottom:80px;
+ transform:translateX(-50%);
+ background:#123;
+ color:#fff;
+ padding:11px 18px;
+ border-radius:25px;
+ display:none;
+ z-index:50;
+ font-size:13px
+}
+
+@media(min-width:700px){
+ main{
+  max-width:1000px;
+  margin:auto
+ }
+
+ .products{
+  grid-template-columns:repeat(4,1fr)
+ }
+
+ .features{
+  grid-template-columns:repeat(4,1fr)
+ }
+
+ header{
+  padding-left:calc((100% - 1000px)/2 + 16px);
+  padding-right:calc((100% - 1000px)/2 + 16px)
+ }
+
+ nav{
+  max-width:1000px;
+  margin:auto
+ }
+}
+
+.modal{
+ display:none;
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.58);
+ z-index:100;
+ padding:12px
+}
+
+.adminPanel{
+ max-width:520px;
+ margin:auto;
+ background:#fff;
+ border-radius:20px;
+ overflow:hidden;
+ max-height:96vh;
+ box-shadow:0 15px 45px rgba(0,0,0,.3)
+}
+
+.adminHead{
+ background:linear-gradient(135deg,#003e31,#00634c);
+ color:#fff;
+ padding:14px 16px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center
+}
+
+.adminHead b{
+ font-size:18px
+}
+
+.adminHead small{
+ display:block;
+ opacity:.85;
+ margin-top:2px
+}
+
+.adminHead button{
+ border:0;
+ background:rgba(255,255,255,.16);
+ color:#fff;
+ border-radius:10px;
+ font-size:18px;
+ padding:7px 10px
+}
+
+.adminBody{
+ padding:16px;
+ overflow:auto;
+ max-height:calc(96vh - 66px)
+}
+
+.adminBody h3{
+ margin:2px 0 7px
+}
+
+.adminNote{
+ font-size:12px;
+ color:#666;
+ margin:0 0 12px
+}
+
+.adminBody label{
+ display:block;
+ font-weight:700;
+ font-size:13px;
+ margin:10px 0 5px
+}
+
+.adminBody input,
+.adminBody select{
+ width:100%;
+ padding:11px;
+ border:1px solid #ddd;
+ border-radius:10px;
+ font-size:14px;
+ background:#fff
+}
+
+.two{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px
+}
+
+.imagePreview{
+ height:90px;
+ border:2px dashed #cfcfcf;
+ border-radius:12px;
+ display:grid;
+ place-items:center;
+ color:#777;
+ background:#fafafa;
+ overflow:hidden
+}
+
+.imagePreview img{
+ width:100%;
+ height:100%;
+ object-fit:contain
+}
+
+.saveProduct{
+ width:100%;
+ margin-top:15px;
+ border:0;
+ border-radius:12px;
+ padding:13px;
+ background:#ffd21c;
+ color:#123;
+ font-weight:800;
+ font-size:15px
+}
+
+.adminListTitle{
+ margin-top:22px!important;
+ border-top:1px solid #eee;
+ padding-top:16px
+}
+
+.adminItem{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ border:1px solid #eee;
+ border-radius:12px;
+ padding:9px;
+ margin:8px 0
+}
+
+.adminItem img,
+.adminEmoji{
+ width:52px;
+ height:52px;
+ border-radius:9px;
+ object-fit:cover;
+ background:#f2f2f2;
+ display:grid;
+ place-items:center;
+ font-size:27px
+}
+
+.adminItem .meta{
+ flex:1
+}
+
+.adminItem b{
+ display:block;
+ font-size:14px
+}
+
+.adminItem small{
+ color:#777
+}
+
+.deleteP{
+ border:0;
+ background:#ffe5e5;
+ color:#b00020;
+ border-radius:9px;
+ padding:8px
+}
+
+.cloudSync{
+ width:100%;
+ border:1px solid #d8e7e1;
+ background:#eef8f4;
+ color:#075f49;
+ border-radius:10px;
+ padding:10px;
+ font-weight:800;
+ margin:4px 0 10px
+}
+
+@media(max-width:380px){
+ .two{
+  grid-template-columns:1fr
+ }
+}
+
+.shopRow{display:flex;gap:10px;align-items:center;border:1px solid #eee;border-radius:12px;padding:10px;margin:8px 0;background:#fff}
+.shopRow .shopPic{width:58px;height:58px;border-radius:10px;background:#f3f3f3;display:grid;place-items:center;font-size:30px;overflow:hidden;flex:none}
+.shopRow .shopMeta{flex:1;min-width:0}.shopRow .shopMeta b{display:block}.shopRow .shopMeta small{color:#777}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}.qty button{border:0;background:#eef5f2;border-radius:8px;padding:5px 9px;font-weight:bold}
+.primaryBtn,.dangerBtn,.outlineBtn{width:100%;padding:12px;border:0;border-radius:10px;font-weight:bold;margin-top:9px}.primaryBtn{background:#075f49;color:#fff}.dangerBtn{background:#d32f2f;color:#fff}.outlineBtn{background:#fff;border:1px solid #075f49;color:#075f49}
+.profileStatus{font-size:12px;background:#eef8f4;color:#075f49;padding:9px;border-radius:9px;margin:8px 0}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="top">
+
+<div class="brand">
+<div class="logo">MB</div>
+
+<div>
+<h1>म्हारो <span>बाजार</span></h1>
+<small>आपणो बाजार, आपणो सामान</small>
+</div>
+</div>
+
+<div class="icons">
+
+<button class="iconbtn" onclick="openAdmin()">⚙️</button>
+
+<button class="iconbtn">
+♧
+<span class="badge">3</span>
+</button>
+
+<button class="iconbtn" onclick="showCart()">
+🛒
+<span id="cartBadge" class="badge">0</span>
+</button>
+
+</div>
+</div>
+
+<div class="search">
+🔍
+<input
+ id="search"
+ placeholder="कपड़े, जूते, बैग आदि खोजें..."
+ oninput="filterProducts()">
+<button>📷</button>
+</div>
+
+</header>
+
+<main>
+
+<section class="banner">
+
+<div class="off">
+UP TO<br>
+<span style="font-size:25px">50%</span><br>
+OFF
+</div>
+
+<div class="yellow" style="font-size:20px;font-style:italic">
+New Collection
+</div>
+
+<h2>Latest Fashion</h2>
+
+<p>हर स्टाइल में, हर मौके पर</p>
+
+<button class="shop" onclick="scrollToProducts()">
+Shop Now →
+</button>
+
+</section>
+
+<div class="dots">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<h2 class="sec">Categories</h2>
+
+<div class="cats">
+
+<div class="cat" onclick="category('पुरुष')">
+<div class="circle">👔</div>
+<b>पुरुष<br>कपड़े</b>
+</div>
+
+<div class="cat" onclick="category('महिला')">
+<div class="circle">👗</div>
+<b>महिला<br>कपड़े</b>
+</div>
+
+<div class="cat" onclick="category('बच्चे')">
+<div class="circle">🧥</div>
+<b>बच्चे<br>कपड़े</b>
+</div>
+
+<div class="cat" onclick="category('जूते')">
+<div class="circle">👟</div>
+<b>जूते<br>Shoes</b>
+</div>
+
+<div class="cat" onclick="category('चप्पल')">
+<div class="circle">🩴</div>
+<b>चप्पल<br>Sandals</b>
+</div>
+
+<div class="cat" onclick="category('बैग')">
+<div class="circle">🎒</div>
+<b>बैग<br>Bags</b>
+</div>
+
+<div class="cat" onclick="category('घड़ी')">
+<div class="circle">⌚</div>
+<b>घड़ियाँ<br>Watches</b>
+</div>
+
+<div class="cat" onclick="category('कैप')">
+<div class="circle">🧢</div>
+<b>कैप<br>Caps</b>
+</div>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+🚚
+<strong>Free Delivery</strong>
+कुछ चुनिंदा क्षेत्रों में
+</div>
+
+<div class="feature">
+🛡️
+<strong>Secure Payment</strong>
+100% सुरक्षित
+</div>
+
+<div class="feature">
+↩️
+<strong>Easy Return</strong>
+7 दिन के अंदर
+</div>
+
+<div class="feature">
+🎧
+<strong>24x7 Support</strong>
+हमेशा आपके साथ
+</div>
+
+</div>
+
+<div class="promo">
+
+<div class="box">
+<h3>Men’s Collection</h3>
+स्टाइल जो बोले आपके लिए
+<br><br>
+<button class="shop" onclick="category('पुरुष')">
+Shop Now →
+</button>
+</div>
+
+<div class="box">
+<h3>Best Footwear</h3>
+हर कदम में आराम
+<br><br>
+<button class="shop" onclick="category('जूते')">
+Shop Now →
+</button>
+</div>
+
+</div>
+
+<h2 class="sec" id="productsTitle">
+नए उत्पाद
+<span style="float:right;color:#075f49;font-size:13px">
+सभी देखें →
+</span>
+</h2>
+
+<div class="products" id="products"></div>
+
+</main>
+
+<nav>
+
+<button class="navbtn active">
+<b>⌂</b>Home
+</button>
+
+<button class="navbtn" onclick="category('all')">
+<b>▦</b>Categories
+</button>
+
+<button class="navbtn" onclick="document.getElementById('search').focus()">
+<b>⌕</b>Search
+</button>
+
+<button class="navbtn" onclick="showCart()">
+<b>🛒</b>Cart
+</button>
+
+<button class="navbtn" onclick="openProfile()">
+  <b>♙</b>Profile
+</button>
+
+</nav>
+
+<div id="adminModal" class="modal">
+
+<div class="adminPanel">
+
+<div class="adminHead">
+
+<div>
+<b>⚙️ MHAARO BAZAAR</b>
+<small>Product Admin</small>
+</div>
+
+<button onclick="closeAdmin()">✕</button>
+
+</div>
+
+<div class="adminBody">
+
+<h3>नया Product जोड़ें</h3>
+
+<p class="adminNote" id="firebaseStatus">
+☁️ Firebase connection तैयार हो रहा है...
+</p>
+
+<button
+ type="button"
+ class="cloudSync"
+ onclick="uploadLocalProducts()">
+☁️ पुराने Products Firebase में Upload करें
+</button>
+
+<form id="productForm" onsubmit="saveProduct(event)">
+
+<label>Product Photo</label>
+
+<input
+ id="pImage"
+ type="file"
+ accept="image/*">
+
+<div id="imagePreview" class="imagePreview">
+📷 Photo चुनें
+</div>
+
+<label>Product Name</label>
+
+<input
+ id="pName"
+ required
+ placeholder="जैसे Premium T-Shirt">
+
+<div class="two">
+
+<div>
+<label>Category</label>
+
+<select id="pCat" required>
+
+<option value="पुरुष">पुरुष कपड़े</option>
+<option value="महिला">महिला कपड़े</option>
+<option value="बच्चे">बच्चे कपड़े</option>
+<option value="जूते">जूते</option>
+<option value="चप्पल">चप्पल</option>
+<option value="बैग">बैग</option>
+<option value="घड़ी">घड़ियाँ</option>
+<option value="कैप">कैप</option>
+
+</select>
+
+</div>
+
+<div>
+<label>Stock</label>
+
+<input
+ id="pStock"
+ type="number"
+ min="0"
+ value="1"
+ required>
+
+</div>
+
+</div>
+
+<div class="two">
+
+<div>
+<label>Price (₹)</label>
+
+<input
+ id="pPrice"
+ type="number"
+ min="0"
+ required
+ placeholder="599">
+
+</div>
+
+<div>
+<label>Old Price (₹)</label>
+
+<input
+ id="pOld"
+ type="number"
+ min="0"
+ placeholder="999">
+
+</div>
+
+</div>
+
+<div class="two">
+
+<div>
+<label>Sizes</label>
+
+<input
+ id="pSizes"
+ placeholder="M, L, XL">
+
+</div>
+
+<div>
+<label>Colors</label>
+
+<input
+ id="pColors"
+ placeholder="Black, Blue">
+
+</div>
+
+</div>
+
+<button class="saveProduct" type="submit">
+＋ Product Save करें
+</button>
+
+</form>
+
+<h3 class="adminListTitle">
+आपके Products
+</h3>
+
+<div id="adminProducts"></div>
+
+</div>
+</div>
+</div>
+
+
+
+<div id="shopModal" class="modal">
+  <div class="adminPanel">
+    <div class="adminHead"><div><b id="shopModalTitle">🛒 Cart</b><small>MHAARO BAZAAR</small></div><button onclick="closeShopModal()">✕</button></div>
+    <div class="adminBody" id="shopModalBody"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script type="module">
+
+import {
+ initializeApp
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+
+import {
+ getAuth,
+ signInAnonymously,
+ onAuthStateChanged,
+ createUserWithEmailAndPassword,
+ signInWithEmailAndPassword,
+ signOut
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAvNKL0p8qOv0Xb7W10VOrpjEcp63Odp_M",
+  authDomain: "mhaaro-bazaar.firebaseapp.com",
+  projectId: "mhaaro-bazaar",
+  storageBucket: "mhaaro-bazaar.firebasestorage.app",
+  messagingSenderId: "128220834013",
+  appId: "1:128220834013:web:91242dd714532438c35334",
+  measurementId: "G-6TG6V8Q21E"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+const productsRef=collection(db,"products");
+
+const defaultProducts=[
+
+{
+ cat:'पुरुष',
+ name:'पुरुष चेक शर्ट',
+ price:599,
+ old:999,
+ off:40,
+ emoji:'👔',
+ rating:'4.5 (124)',
+ stock:20,
+ sizes:'M,L,XL',
+ colors:'Blue,White'
+},
+
+{
+ cat:'महिला',
+ name:'महिला कुर्ती',
+ price:649,
+ old:999,
+ off:35,
+ emoji:'👗',
+ rating:'4.3 (98)',
+ stock:15,
+ sizes:'M,L,XL',
+ colors:'Pink,Blue'
+},
+
+{
+ cat:'जूते',
+ name:'स्पोर्ट्स शूज',
+ price:1299,
+ old:2599,
+ off:50,
+ emoji:'👟',
+ rating:'4.6 (210)',
+ stock:12,
+ sizes:'7,8,9,10',
+ colors:'Black,White'
+},
+
+{
+ cat:'चप्पल',
+ name:'पुरुष सैंडल',
+ price:699,
+ old:999,
+ off:30,
+ emoji:'🩴',
+ rating:'4.2 (76)',
+ stock:18,
+ sizes:'7,8,9,10',
+ colors:'Brown,Black'
+},
+
+{
+ cat:'पुरुष',
+ name:'प्रीमियम जैकेट',
+ price:1199,
+ old:1999,
+ off:40,
+ emoji:'🧥',
+ rating:'4.5 (61)',
+ stock:10,
+ sizes:'M,L,XL',
+ colors:'Brown,Black'
+},
+
+{
+ cat:'बैग',
+ name:'फैशन बैग',
+ price:899,
+ old:1499,
+ off:40,
+ emoji:'🎒',
+ rating:'4.4 (88)',
+ stock:8,
+ sizes:'Free Size',
+ colors:'Black,Red'
+}
+
+];
+
+let products=
+JSON.parse(localStorage.getItem('mb_products')||'null')
+||defaultProducts;
+
+let cartItems=JSON.parse(localStorage.getItem('mb_cart_items')||'[]');
+let cart=cartItems.reduce((n,x)=>n+(x.qty||1),0);
+let wishlist=JSON.parse(localStorage.getItem('mb_wishlist')||'[]');
+let orders=JSON.parse(localStorage.getItem('mb_orders')||'[]');
+
+let selectedImage='';
+let cloudReady=false;
+
+function status(t,ok=false){
+
+ const e=document.getElementById('firebaseStatus');
+
+ if(e){
+  e.textContent=(ok?'☁️ ':'⚠️ ')+t;
+  e.style.color=ok?'#075f49':'#a15c00';
+ }
+
+}
+
+function render(list=products){
+
+ document.getElementById('products').innerHTML=
+
+ list.map(p=>{
+
+  const photo=p.image
+   ? `<img src="${p.image}" alt="" style="width:100%;height:100%;object-fit:contain">`
+   : p.emoji||'🛍️';
+
+  return `
+
+<div class="card">
+
+<span class="discount">
+${p.off||0}% OFF
+</span>
+
+<button class="heart" onclick="toggleWishlist(${products.indexOf(p)})">${wishlist.includes(p.firebaseId||p.name)?'♥':'♡'}</button>
+
+<div class="pic">
+${photo}
+</div>
+
+<div class="info">
+
+<div class="rating">
+⭐ ${p.rating||'New'}
+</div>
+
+<div class="name">
+${p.name}
+</div>
+
+<div class="price">
+₹${p.price}
+
+<span class="old">
+${p.old?'₹'+p.old:''}
+</span>
+
+<button
+ class="add"
+ onclick="addCart(${products.indexOf(p)})">
+🛒
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+ }).join('');
+
+}
+
+function saveData(){
+ localStorage.setItem('mb_products',JSON.stringify(products));
+ localStorage.setItem('mb_cart_items',JSON.stringify(cartItems));
+ localStorage.setItem('mb_cart',String(cart));
+ localStorage.setItem('mb_wishlist',JSON.stringify(wishlist));
+ localStorage.setItem('mb_orders',JSON.stringify(orders));
+}
+
+function updateCartBadge(){
+ cart=cartItems.reduce((n,x)=>n+(x.qty||1),0);
+ const e=document.getElementById('cartBadge'); if(e)e.textContent=cart;
+}
+
+function addCart(i){
+ const p=products[i]; if(!p)return;
+ const key=p.firebaseId||p.name;
+ const item=cartItems.find(x=>(x.firebaseId||x.name)===key);
+ if(item)item.qty=(item.qty||1)+1;
+ else cartItems.push({...p,qty:1});
+ saveData(); updateCartBadge(); toast('सामान Cart में जोड़ दिया गया ✓');
+}
+
+function changeQty(i,d){
+ if(!cartItems[i])return;
+ cartItems[i].qty=(cartItems[i].qty||1)+d;
+ if(cartItems[i].qty<=0)cartItems.splice(i,1);
+ saveData(); updateCartBadge(); renderCart();
+}
+
+function toggleWishlist(i){
+ const p=products[i]; if(!p)return;
+ const key=p.firebaseId||p.name;
+ const n=wishlist.indexOf(key);
+ if(n>=0){wishlist.splice(n,1);toast('Wishlist से हटाया गया');}
+ else{wishlist.push(key);toast('Wishlist में जोड़ दिया ✓');}
+ saveData(); render();
+}
+
+function showCart(){
+ openShopModal('🛒 Cart',renderCart);
+}
+
+function renderCart(){
+ const b=document.getElementById('shopModalBody'); if(!b)return;
+ if(!cartItems.length){b.innerHTML='<p style="text-align:center;padding:25px">🛒 Cart अभी खाली है</p>';return;}
+ let total=0;
+ b.innerHTML=cartItems.map((p,i)=>{total+=Number(p.price||0)*(p.qty||1); const photo=p.image?`<img src="${p.image}" style="width:100%;height:100%;object-fit:contain">`:(p.emoji||'🛍️'); return `<div class="shopRow"><div class="shopPic">${photo}</div><div class="shopMeta"><b>${p.name}</b><small>₹${p.price}</small><div class="qty"><button onclick="changeQty(${i},-1)">−</button><b>${p.qty||1}</b><button onclick="changeQty(${i},1)">+</button></div></div></div>`}).join('');
+ b.innerHTML+=`<h3>कुल: ₹${total}</h3><button class="primaryBtn" onclick="openCheckout()">📦 Order करें</button><button class="outlineBtn" onclick="openShopModal('❤️ Wishlist',renderWishlist)">❤️ Wishlist देखें</button>`;
+}
+
+function renderWishlist(){
+ const b=document.getElementById('shopModalBody'); if(!b)return;
+ const list=products.filter(p=>wishlist.includes(p.firebaseId||p.name));
+ b.innerHTML=list.length?list.map(p=>`<div class="shopRow"><div class="shopPic">${p.image?`<img src="${p.image}" style="width:100%;height:100%;object-fit:contain">`:(p.emoji||'🛍️')}</div><div class="shopMeta"><b>${p.name}</b><small>₹${p.price}</small></div><button class="outlineBtn" style="width:auto;margin:0" onclick="addCart(${products.indexOf(p)})">🛒</button></div>`).join(''):'<p style="text-align:center;padding:25px">❤️ Wishlist खाली है</p>';
+ b.innerHTML+='<button class="outlineBtn" onclick="showCart()">🛒 Cart</button>';
+}
+
+function openShopModal(title,renderer){
+ document.getElementById('shopModalTitle').textContent=title;
+ document.getElementById('shopModal').style.display='block';
+ renderer();
+}
+function closeShopModal(){document.getElementById('shopModal').style.display='none';}
+
+function openCheckout(){
+ const b=document.getElementById('shopModalBody');
+ b.innerHTML=`<h3>📦 Delivery Details</h3><input id="orderAddress" placeholder="पूरा Delivery Address" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:10px"><input id="orderCity" placeholder="शहर / गाँव" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-top:8px"><input id="orderPincode" inputmode="numeric" placeholder="PIN Code" maxlength="6" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-top:8px"><button class="primaryBtn" onclick="placeOrder()">✅ Order Confirm करें</button><button class="outlineBtn" onclick="renderCart()">← Cart पर जाएँ</button>`;
+ const a=localStorage.getItem('mb_address'); if(a){try{const x=JSON.parse(a);orderAddress.value=x.address||'';orderCity.value=x.city||'';orderPincode.value=x.pincode||'';}catch(e){}}
+}
+
+function placeOrder(){
+ const address=document.getElementById('orderAddress').value.trim(),city=document.getElementById('orderCity').value.trim(),pincode=document.getElementById('orderPincode').value.trim();
+ if(!address||!city||pincode.length!==6){alert('कृपया पूरा address, शहर और 6 digit PIN भरें');return;}
+ localStorage.setItem('mb_address',JSON.stringify({address,city,pincode}));
+ const total=cartItems.reduce((n,x)=>n+Number(x.price||0)*(x.qty||1),0);
+ const order={id:'MB'+Date.now(),date:new Date().toLocaleString('hi-IN'),items:cartItems.map(x=>({name:x.name,qty:x.qty,price:x.price})),total,address,city,pincode,status:'Pending'};
+ orders.unshift(order); cartItems=[]; saveData(); updateCartBadge();
+ document.getElementById('shopModalBody').innerHTML=`<div style="text-align:center;padding:25px"><div style="font-size:45px">✅</div><h3>Order दर्ज हो गया</h3><p>Order ID: <b>${order.id}</b></p><p>स्थिति: Pending</p><button class="primaryBtn" onclick="showOrders()">📦 My Orders</button></div>`;
+}
+
+function showOrders(){
+ openShopModal('📦 My Orders',()=>{const b=document.getElementById('shopModalBody'); b.innerHTML=orders.length?orders.map(o=>`<div class="shopRow"><div class="shopMeta"><b>${o.id}</b><small>${o.date}</small><div>₹${o.total} • ${o.status}</div><small>${o.city}, ${o.pincode}</small></div></div>`).join(''):'<p style="text-align:center;padding:25px">अभी कोई Order नहीं है</p>';});
+}
+
+function toast(t){
+
+ let x=document.getElementById('toast');
+
+ x.textContent=t;
+
+ x.style.display='block';
+
+ clearTimeout(window.tt);
+
+ window.tt=setTimeout(
+  ()=>x.style.display='none',
+  1800
+ );
+
+}
+
+function category(c){
+
+ if(c==='all'){
+  render();
+  return;
+ }
+
+ let list=products.filter(
+  p=>p.cat===c
+ );
+
+ render(list);
+
+ document
+  .getElementById('productsTitle')
+  .scrollIntoView({behavior:'smooth'});
+
+ toast(
+  list.length
+   ? `${c} के ${list.length} उत्पाद मिले`
+   : `${c} के उत्पाद जल्द आएंगे`
+ );
+
+}
+
+function filterProducts(){
+
+ let q=
+ document
+ .getElementById('search')
+ .value
+ .toLowerCase();
+
+ render(
+  products.filter(
+   p=>
+    p.name.toLowerCase().includes(q)
+    ||
+    p.cat.toLowerCase().includes(q)
+  )
+ );
+
+}
+
+function scrollToProducts(){
+
+ document
+  .getElementById('productsTitle')
+  .scrollIntoView({behavior:'smooth'});
+
+}
+async function openProfile(){
+ const savedName=localStorage.getItem('customerName')||'',savedPhone=localStorage.getItem('customerPhone')||'',savedEmail=localStorage.getItem('customerEmail')||'';
+ document.getElementById('customerName').value=savedName; document.getElementById('customerPhone').value=savedPhone; document.getElementById('customerEmail').value=savedEmail;
+ document.getElementById('profileModal').style.display='block';
+ const user=auth.currentUser;
+ if(user && !user.isAnonymous){
+  try{const snap=await getDoc(doc(db,'profiles',user.uid)); if(snap.exists()){const d=snap.data(); document.getElementById('customerName').value=d.name||'';document.getElementById('customerPhone').value=d.phone||'';document.getElementById('customerEmail').value=d.email||'';localStorage.setItem('customerName',d.name||'');localStorage.setItem('customerPhone',d.phone||'');localStorage.setItem('customerEmail',d.email||'');}}catch(e){console.error(e);}
+ }
+ const st=document.getElementById('profileLoginStatus'); if(st)st.textContent=user&&!user.isAnonymous?'🟢 Login है: '+(user.email||''):'🟡 Guest mode';
+}
+
+function closeProfile(){
+
+ document
+  .getElementById('profileModal')
+  .style.display='none';
+
+}
+
+async function saveProfile(){
+
+ const name=document.getElementById('customerName').value.trim();
+ const phone=document.getElementById('customerPhone').value.trim();
+ const email=document.getElementById('customerEmail').value.trim();
+
+ if(!name || !phone){
+   alert('कृपया नाम और मोबाइल नंबर भरें');
+   return;
+ }
+
+ localStorage.setItem('customerName',name);
+ localStorage.setItem('customerPhone',phone);
+ localStorage.setItem('customerEmail',email);
+
+ const user = auth.currentUser;
+
+ if(user){
+   try{
+
+     await setDoc(
+       doc(db,'profiles',user.uid),
+       {
+         name: name,
+         phone: phone,
+         email: email
+       },
+       { merge: true }
+     );
+
+     alert('Profile Firebase में Save हो गई ✓');
+
+   }catch(error){
+
+     console.error(error);
+     alert('Firebase में Profile Save नहीं हो पाई: ' + error.message);
+
+   }
+ }else{
+
+   alert('Profile इस मोबाइल में Save हो गई ✓');
+
+ }
+
+ closeProfile();
+
+}
+function openAdmin(){
+
+ document
+  .getElementById('adminModal')
+  .style.display='block';
+
+ renderAdmin();
+
+}
+
+function closeAdmin(){
+
+ document
+  .getElementById('adminModal')
+  .style.display='none';
+
+}
+
+function renderAdmin(){
+
+ const box=
+ document.getElementById('adminProducts');
+
+ box.innerHTML=
+
+ products.map((p,i)=>`
+
+<div class="adminItem">
+
+${p.image
+ ? `<img src="${p.image}">`
+ : `<div class="adminEmoji">${p.emoji||'🛍️'}</div>`
+}
+
+<div class="meta">
+
+<b>${p.name}</b>
+
+<small>
+₹${p.price} • Stock: ${p.stock??'-'} • ${p.cat}
+</small>
+
+</div>
+
+<button
+ class="deleteP"
+ onclick="deleteProduct(${i})">
+Delete
+</button>
+
+</div>
+
+`).join('');
+
+}
+
+async function deleteProduct(i){
+
+ if(!confirm('यह product हटाना है?'))
+  return;
+
+ const p=products[i];
+
+ products.splice(i,1);
+
+ saveData();
+ render();
+ renderAdmin();
+
+ if(cloudReady && p.firebaseId){
+
+  try{
+
+   await deleteDoc(
+    doc(db,'products',p.firebaseId)
+   );
+
+  }catch(e){
+
+   console.error(e);
+
+   toast(
+    'Local से हट गया, Firebase delete नहीं हुआ'
+   );
+
+   return;
+  }
+
+ }
+
+ toast('Product हट गया');
+
+}
+
+document
+ .getElementById('pImage')
+ .addEventListener(
+  'change',
+  function(){
+
+   const file=this.files[0];
+
+   if(!file)return;
+
+   const reader=new FileReader();
+
+   reader.onload=e=>{
+
+    selectedImage=e.target.result;
+
+    document
+     .getElementById('imagePreview')
+     .innerHTML=
+     `<img src="${selectedImage}">`;
+
+   };
+
+   reader.readAsDataURL(file);
+
+  }
+ );
+
+async function saveProduct(e){
+
+ e.preventDefault();
+
+ if(!cloudReady){
+
+  toast('Firebase अभी ready नहीं है');
+
+  return;
+
+ }
+
+ const price=
+ Number(
+  document.getElementById('pPrice').value
+ );
+
+ const old=
+ Number(
+  document.getElementById('pOld').value
+ )||price;
+
+ const off=
+ Math.max(
+  0,
+  Math.round((1-price/old)*100)
+ );
+
+ const p={
+
+  cat:
+   document.getElementById('pCat').value,
+
+  name:
+   document.getElementById('pName').value.trim(),
+
+  price,
+
+  old,
+
+  off,
+
+  stock:
+   Number(
+    document.getElementById('pStock').value
+   )||0,
+
+  sizes:
+   document.getElementById('pSizes').value.trim(),
+
+  colors:
+   document.getElementById('pColors').value.trim(),
+
+  rating:'New',
+
+  image:selectedImage||'',
+
+  emoji:'🛍️',
+
+  createdAt:Date.now()
+
+ };
+
+ try{
+
+  const ref=
+   await addDoc(productsRef,p);
+
+  p.firebaseId=ref.id;
+
+  products.unshift(p);
+
+  saveData();
+
+  render();
+
+  renderAdmin();
+
+  document
+   .getElementById('productForm')
+   .reset();
+
+  selectedImage='';
+
+  document
+   .getElementById('imagePreview')
+   .textContent=
+   '📷 Photo चुनें';
+
+  toast(
+   'Product Firebase में save हो गया ✓'
+  );
+
+ }catch(err){
+
+  console.error(err);
+
+  toast(
+   'Firebase में save नहीं हुआ'
+  );
+
+  status(
+   'Firestore rules अभी access रोक रही हैं'
+  );
+
+ }
+
+}
+
+ async function loadCloudProducts(){
+
+ try{
+
+  const snap=
+   await getDocs(
+    query(
+     productsRef,
+     orderBy('createdAt','desc')
+    )
+   );
+
+  const cloud=[];
+
+  snap.forEach(d=>{
+
+   cloud.push({
+    ...d.data(),
+    firebaseId:d.id
+   });
+
+  });
+
+  if(cloud.length){
+
+   products=cloud;
+
+   saveData();
+   render();
+   renderAdmin();
+
+  }
+
+  status(
+   `Firebase connected • ${cloud.length} Products`,
+   true
+  );
+
+ }catch(e){
+
+  console.error(e);
+
+  status(
+   'Firebase connected है, लेकिन Products load नहीं हो पाए'
+  );
+
+ }
+
+}
+
+async function uploadLocalProducts(){
+
+ if(!cloudReady){
+
+  toast('Firebase अभी ready नहीं है');
+
+  return;
+
+ }
+
+ if(!products.length){
+
+  toast('Upload करने के लिए कोई Product नहीं है');
+
+  return;
+
+ }
+
+ let count=0;
+
+ for(const p of products){
+
+  if(p.firebaseId)
+   continue;
+
+  try{
+
+   const copy={
+    cat:p.cat||'',
+    name:p.name||'',
+    price:Number(p.price)||0,
+    old:Number(p.old)||0,
+    off:Number(p.off)||0,
+    stock:Number(p.stock)||0,
+    sizes:p.sizes||'',
+    colors:p.colors||'',
+    rating:p.rating||'New',
+    image:p.image||'',
+    emoji:p.emoji||'🛍️',
+    createdAt:p.createdAt||Date.now()
+   };
+
+   const ref=
+    await addDoc(
+     productsRef,
+     copy
+    );
+
+   p.firebaseId=ref.id;
+
+   count++;
+
+  }catch(e){
+
+   console.error(e);
+
+  }
+
+ }
+
+ saveData();
+ render();
+ renderAdmin();
+
+ toast(
+  count
+   ? `${count} Products Firebase में Upload हो गए ✓`
+   : 'कोई नया Product Upload नहीं हुआ'
+ );
+
+}
+
+onAuthStateChanged(
+ auth,
+ async user=>{
+
+  if(user){
+
+   cloudReady=true;
+
+   status(
+    'Firebase connected ✓',
+    true
+   );
+
+   await loadCloudProducts();
+   const ps=document.getElementById('profileLoginStatus'); if(ps) ps.textContent=user.isAnonymous?'🟡 Guest mode':'🟢 Login है: '+(user.email||'');
+  } else {
+   const ps=document.getElementById('profileLoginStatus'); if(ps) ps.textContent='⚪ Logout है';
+  }
+
+ }
+);
+
+if(sessionStorage.getItem('mb_explicit_logout')!=='1') signInAnonymously(auth)
+ .catch(err=>{
+
+  console.error('Firebase Auth Error:', err);
+
+  cloudReady=false;
+
+  status(
+   'Firebase Error: ' + (err.code || err.message)
+  );
+
+ });
+ 
+window.openAdmin=openAdmin;
+window.openProfile=openProfile;
+window.closeProfile=closeProfile;
+window.saveProfile=saveProfile;
+window.closeAdmin=closeAdmin;
+window.addCart=addCart;
+window.showCart=showCart;
+window.category=category;
+window.filterProducts=filterProducts;
+window.scrollToProducts=scrollToProducts;
+window.deleteProduct=deleteProduct;
+window.saveProduct=saveProduct;
+window.uploadLocalProducts=uploadLocalProducts;
+window.toggleWishlist=toggleWishlist;
+window.changeQty=changeQty;
+window.showOrders=showOrders;
+window.showCart=showCart;
+window.openShopModal=openShopModal;
+window.closeShopModal=closeShopModal;
+window.openCheckout=openCheckout;
+window.placeOrder=placeOrder;
+
+updateCartBadge();
+
+render();
+async function emailSignup() {
+  const email = document.getElementById("customerEmail").value.trim();
+  const password = document.getElementById("customerPassword").value;
+
+  if (!email || !password) {
+    alert("कृपया Email और Password भरें");
+    return;
+  }
+
+  if (password.length < 6) {
+    alert("Password कम से कम 6 अक्षरों का होना चाहिए");
+    return;
+  }
+
+  try {
+    sessionStorage.removeItem('mb_explicit_logout');
+    await createUserWithEmailAndPassword(auth, email, password);
+    alert("Account बन गया ✓");
+  } catch (error) {
+    console.error(error);
+    alert("Account बनाने में समस्या: " + error.message);
+  }
+}
+
+async function logoutUser() {
+  try {
+    sessionStorage.setItem('mb_explicit_logout','1');
+    await signOut(auth);
+    alert("Logout सफल ✓");
+    closeProfile();
+  } catch (error) {
+    console.error(error);
+    alert("Logout में समस्या: " + error.message);
+  }
+}
+
+async function emailLogin() {
+  const email = document.getElementById("customerEmail").value.trim();
+  const password = document.getElementById("customerPassword").value;
+
+  if (!email || !password) {
+    alert("कृपया Email और Password भरें");
+    return;
+  }
+
+  try {
+    sessionStorage.removeItem('mb_explicit_logout');
+    await signInWithEmailAndPassword(auth, email, password);
+    alert("Login सफल ✓");
+  } catch (error) {
+    console.error(error);
+    alert("Login में समस्या: " + error.message);
+  }
+}
+
+window.emailSignup = emailSignup;
+window.emailLogin = emailLogin; 
+window.logoutUser = logoutUser;
+
+</script>
+
+ <!-- Profile Modal -->
+<div id="profileModal" style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+z-index:9999;
+padding:20px;
+">
+
+  <div style="
+  max-width:420px;
+  margin:70px auto;
+  background:#fff;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,.25);
+  ">
+
+    <h2 style="margin-top:0;">👤 My Profile</h2>
+
+    
+      <input
+  type="text"
+  id="customerName"
+  placeholder="आपका नाम"
+  style="width:100%;padding:13px;margin:8px 0;border-radius:10px;border:1px solid #ddd;box-sizing:border-box;"
+>
+
+<input
+  type="tel"
+  id="customerPhone"
+  placeholder="मोबाइल नंबर"
+  inputmode="numeric"
+  maxlength="10"
+  style="width:100%;padding:13px;margin:8px 0;border-radius:10px;border:1px solid #ddd;box-sizing:border-box;"
+>
+
+    <input
+  type="email"
+  id="customerEmail"
+  placeholder="ईमेल पता"
+  autocomplete="email"
+  style="width:100%;padding:13px;margin:8px 0;border-radius:10px;border:1px solid #ddd;box-sizing:border-box;"
+>
+
+<input
+  type="password"
+  id="customerPassword"
+  placeholder="पासवर्ड"
+  autocomplete="new-password"
+  style="width:100%;padding:13px;margin:8px 0;border-radius:10px;border:1px solid #ddd;box-sizing:border-box;"
+>
+
+<button
+  onclick="emailSignup()"
+  style="
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  background:#16a34a;
+  color:white;
+  border:0;
+  border-radius:10px;
+  font-weight:bold;
+  ">
+  📝 Account बनाएं
+</button>
+
+<button
+  onclick="emailLogin()"
+  style="
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  background:#075f49;
+  color:white;
+  border:0;
+  border-radius:10px;
+  font-weight:bold;
+  ">
+  🔐 Login करें
+</button>
+    <div id="profileLoginStatus" class="profileStatus">🟡 Guest mode</div>
+    <button onclick="showOrders()" style="width:100%;padding:12px;border:1px solid #075f49;border-radius:10px;background:#fff;color:#075f49;font-weight:bold;margin-top:8px;">📦 My Orders</button>
+    <button onclick="showCart();closeProfile()" style="width:100%;padding:12px;border:1px solid #075f49;border-radius:10px;background:#fff;color:#075f49;font-weight:bold;margin-top:8px;">🛒 My Cart</button>
+
+    <button
+      onclick="saveProfile()"
+      style="width:100%;padding:13px;border:0;border-radius:10px;background:#168a3b;color:white;font-size:16px;font-weight:bold;margin-top:10px;"
+    >
+      Save Profile
+    </button>
+
+    <button
+      onclick="logoutUser()"
+      style="width:100%;padding:13px;margin-top:10px;border:0;border-radius:10px;background:#d32f2f;color:white;font-weight:bold;">
+      🚪 Logout
+    </button>
+
+    <button
+      onclick="closeProfile()"
+      style="width:100%;padding:12px;border:0;border-radius:10px;background:#eee;color:#333;font-size:15px;margin-top:10px;"
+    >
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+</body>
+</html>
